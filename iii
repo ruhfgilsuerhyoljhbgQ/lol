@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>1초마다 무한 리다이렉트 예시</title>
+    <script type="text/javascript">
+        // 리다이렉트할 사이트 URL 목록
+        const sites = ["https://www.opera.com/ko/computer/thanks?ni=eapgx&os=windows&edition=GX-CN", "https://www.opera.com/ko/computer/thanks?ni=stable&os=windows"];
+        let currentIndex = 0; // 현재 사이트 인덱스 설정
+
+        // 리다이렉트 함수 정의
+        function redirect() {
+            // 현재 인덱스의 사이트로 이동
+            window.location.href = sites[currentIndex];
+            // 인덱스를 다음 사이트로 업데이트
+            currentIndex = (currentIndex + 1) % sites.length;
+        }
+
+        // 페이지가 로드되면 1초마다 리다이렉트를 실행하도록 설정
+        window.onload = function() {
+            setInterval(redirect, 1000); // 1000 밀리초 = 1초
+        };
+    </script>
+</head>
+<body>
+    <p>1초마다 다른 사이트로 리다이렉트됩니다. 테스트 환경에서만 사용하세요.</p>
+</body>
+</html>
